@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suntech Group Qatar | Industrial Supply</title>
+    <meta name="description" content="Reliable electrical, plumbing, hardware, tools, fasteners, safety, and HVAC materials for projects across Qatar. Established 2009.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/suntech-logo.png">
+    <link rel="stylesheet" href="style.css?v=13.0">
+</head>
+<body class="not-authenticated">
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <!-- Centered Clean Authentication Screen (White & Blue Theme) -->
+    <section id="auth-screen" class="auth-viewport" aria-label="Sign in to Suntech Group Portal">
+        <div class="auth-card">
+            <!-- Compact Suntech Branding -->
+            <div class="auth-card-brand">
+                <img src="assets/suntech-logo.png" alt="The Suntech Group" class="suntech-brand-img auth-logo">
+                <div class="auth-brand-name">
+                    <span class="auth-brand-title">SUNTECH GROUP</span>
+                    <span class="auth-brand-sub">Trading &amp; Contracting W.L.L. &bull; Doha, Qatar</span>
+                </div>
+            </div>
+
+            <!-- Sign In Heading -->
+            <div class="auth-card-header">
+                <h1 class="auth-title">Sign In</h1>
+                <p class="auth-subtitle">Enter your email and password to access the portal</p>
+            </div>
+
+            <!-- Concise Inline Validation Alert -->
+            <div id="login-error-alert" class="clean-error-alert" style="display: none;" role="alert">
+                <span id="login-error-message">Invalid password. Demo password is 12345.</span>
+            </div>
+
+            <!-- Vertical Form: Accessible Email Combobox & Password -->
+            <form id="login-form" novalidate>
+                <!-- 1. Email Address Combobox Field -->
+                <div class="form-group-clean">
+                    <label class="form-label-clean" for="login-username">Email Address</label>
+                    <div class="combobox-wrap" id="email-combobox-wrap">
+                        <div class="input-wrap-clean">
+                            <svg class="input-icon-clean" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                            </svg>
+                            <input 
+                                type="text" 
+                                id="login-username" 
+                                class="form-control-clean email-combobox-input" 
+                                placeholder="Select or type demo account..." 
+                                required 
+                                autocomplete="off" 
+                                spellcheck="false" 
+                                value="admin@suntechqatar.com"
+                                role="combobox"
+                                aria-expanded="false"
+                                aria-haspopup="listbox"
+                                aria-controls="email-dropdown-list"
+                                aria-autocomplete="list"
+                            >
+                            <button type="button" class="btn-combobox-arrow" id="btn-email-dropdown-toggle" aria-label="Toggle demo accounts list" tabindex="-1">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        
+                        <!-- Floating Accessible Combobox Dropdown -->
+                        <ul id="email-dropdown-list" class="combobox-dropdown-menu" role="listbox" aria-label="Available Demo Accounts" style="display: none;">
+                            <li class="combobox-item is-selected" role="option" id="email-opt-admin" data-key="admin" data-email="admin@suntechqatar.com" data-pass="12345" data-badge="Admin (Operations)">
+                                <div class="combobox-item-info">
+                                    <div class="combobox-item-header">
+                                        <span class="combobox-role-title">Admin</span>
+                                        <span class="combobox-role-tag tag-admin">Operations</span>
+                                    </div>
+                                    <div class="combobox-item-email">admin@suntechqatar.com</div>
+                                    <div class="combobox-item-desc">Operations Dashboard &amp; Material Quotes</div>
+                                </div>
+                                <svg class="combobox-item-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </li>
+                            <li class="combobox-item" role="option" id="email-opt-administrator" data-key="administrator" data-email="executive@suntechqatar.com" data-pass="12345" data-badge="Administrator (Executive)">
+                                <div class="combobox-item-info">
+                                    <div class="combobox-item-header">
+                                        <span class="combobox-role-title">Administrator</span>
+                                        <span class="combobox-role-tag tag-administrator">Executive</span>
+                                    </div>
+                                    <div class="combobox-item-email">executive@suntechqatar.com</div>
+                                    <div class="combobox-item-desc">System Console, Audit Logs &amp; Full Access</div>
+                                </div>
+                                <svg class="combobox-item-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </li>
+                            <li class="combobox-item" role="option" id="email-opt-customer" data-key="customer" data-email="customer@suntechqatar.com" data-pass="12345" data-badge="Customer (Demo)">
+                                <div class="combobox-item-info">
+                                    <div class="combobox-item-header">
+                                        <span class="combobox-role-title">Customer</span>
+                                        <span class="combobox-role-tag tag-customer">Storefront</span>
+                                    </div>
+                                    <div class="combobox-item-email">customer@suntechqatar.com</div>
+                                    <div class="combobox-item-desc">Product Catalog, Materials &amp; RFQs</div>
+                                </div>
+                                <svg class="combobox-item-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </li>
+                            <li class="combobox-item" role="option" id="email-opt-hr" data-key="hr" data-email="hr@suntechqatar.com" data-pass="12345" data-badge="HR &amp; Staff">
+                                <div class="combobox-item-info">
+                                    <div class="combobox-item-header">
+                                        <span class="combobox-role-title">HR Manager</span>
+                                        <span class="combobox-role-tag tag-hr">Personnel</span>
+                                    </div>
+                                    <div class="combobox-item-email">hr@suntechqatar.com</div>
+                                    <div class="combobox-item-desc">Field Staff Directory &amp; Safety Hub</div>
+                                </div>
+                                <svg class="combobox-item-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </li>
+                            <li class="combobox-item" role="option" id="email-opt-employee" data-key="employee" data-email="employee@suntechqatar.com" data-pass="12345" data-badge="Employee (Warehouse)">
+                                <div class="combobox-item-info">
+                                    <div class="combobox-item-header">
+                                        <span class="combobox-role-title">Warehouse Staff</span>
+                                        <span class="combobox-role-tag tag-employee">Logistics</span>
+                                    </div>
+                                    <div class="combobox-item-email">employee@suntechqatar.com</div>
+                                    <div class="combobox-item-desc">Stock Balances &amp; Material Receiving</div>
+                                </div>
+                                <svg class="combobox-item-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2. Password Field -->
+                <div class="form-group-clean">
+                    <div class="password-label-row">
+                        <label class="form-label-clean" for="login-password">Password</label>
+                        <span class="discreet-hint" id="password-hint-text">Demo: 12345</span>
+                    </div>
+                    <div class="input-wrap-clean">
+                        <svg class="input-icon-clean" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                        <input type="password" id="login-password" class="form-control-clean password-input" placeholder="••••••••" required autocomplete="current-password" value="12345">
+                        <button type="button" class="btn-toggle-eye" id="btn-toggle-password" aria-label="Toggle password visibility">
+                            <svg id="toggle-eye-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Discreet Active Credentials Indicator -->
+                <div class="active-credentials-bar" id="active-credentials-bar">
+                    <span class="active-badge-dot"></span>
+                    <span class="active-badge-text">Active Role: <strong id="active-cred-role">Admin (Operations)</strong> &bull; Password: <strong>12345</strong></span>
+                </div>
+
+                <!-- Remember me + Forgot password in Blue -->
+                <div class="form-options-row">
+                    <label class="checkbox-clean">
+                        <input type="checkbox" id="remember-me" checked>
+                        <span>Remember me</span>
+                    </label>
+                    <a href="javascript:void(0)" class="forgot-link-clean" id="link-forgot-pass">Forgot password?</a>
+                </div>
+
+                <!-- Clear Sign In Button in White & Blue -->
+                <button type="submit" class="btn-suntec-signin" id="btn-login-submit">
+                    <span id="login-btn-text">Sign In</span>
+                    <span id="login-btn-spinner" class="login-spinner" style="display: none;"></span>
+                </button>
+            </form>
+
+            <div class="auth-card-footer">
+                <span>Established 2009 &bull; Doha, Qatar</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cool Auth Transition Loading Overlay -->
+    <div id="auth-loading-overlay" class="auth-loading-overlay" aria-hidden="true">
+        <div class="auth-loading-box">
+            <div class="auth-pulse-ring"></div>
+            <h3 class="auth-loading-title">Access Granted</h3>
+            <p class="auth-loading-role" id="auth-loading-role-text">Connecting to Suntech Portal...</p>
+            <div class="auth-progress-track">
+                <div class="auth-progress-bar" id="auth-progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <header class="site-header">
+        <div class="header-container">
+            <a href="#home" class="brand-logo" data-route="home">
+                <img src="assets/suntech-logo.png" alt="The Suntech Group" class="suntech-brand-img nav-logo">
+                <div class="brand-text-container">
+                    <div class="brand-text-top">SUNTECH GROUP</div>
+                    <div class="brand-text-bottom">Trading & Contracting <span style="font-size: 0.85em">W. L. L.</span></div>
+                </div>
+            </a>
+            <nav class="main-nav" id="main-nav">
+                <!-- Links dynamically injected based on user role -->
+                <a href="#products" class="nav-link" data-route="products">Products</a>
+                <a href="#catalog" class="nav-link" data-route="catalog">Catalog</a>
+                <a href="#divisions" class="nav-link" data-route="divisions">Divisions</a>
+                <a href="#about" class="nav-link" data-route="about">About</a>
+                <a href="#contact" class="nav-link" data-route="contact">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <!-- Role Chip -->
+                <div class="user-role-chip" id="header-user-chip" title="Active Demo Role">
+                    <span class="role-chip-dot"></span>
+                    <span class="role-chip-text" id="header-role-text">Customer</span>
+                </div>
+
+                <button class="quote-trigger-btn" id="open-quote-list">
+                    Quote List <span class="quote-badge" id="quote-count">0</span>
+                </button>
+                <a href="#contact" class="btn-primary" data-route="contact" id="header-request-quote-btn">Request a Quote</a>
+                
+                <!-- Sign Out Button -->
+                <button class="btn-signout" id="header-signout-btn" title="Sign out of Suntech demo session">
+                    <svg class="signout-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                    <span>Sign Out</span>
+                </button>
+
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="mobile-nav-panel">
+            <div class="mobile-user-status">
+                <span class="role-chip-dot"></span>
+                <span id="mobile-role-text">Logged in as Customer (Demo)</span>
+            </div>
+            <div class="mobile-nav-content" id="mobile-nav-content">
+                <!-- Links dynamically injected based on user role -->
+                <a href="#products" class="mobile-nav-link" data-route="products">Products</a>
+                <a href="#catalog" class="mobile-nav-link" data-route="catalog">Catalog</a>
+                <a href="#divisions" class="mobile-nav-link" data-route="divisions">Divisions</a>
+                <a href="#about" class="mobile-nav-link" data-route="about">About</a>
+                <a href="#contact" class="mobile-nav-link" data-route="contact">Contact</a>
+            </div>
+            <div class="mobile-nav-footer">
+                <button class="btn-signout full-width" id="mobile-signout-btn">
+                    Sign Out (Demo Session)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="app-root">
+        <!-- Content will be injected here by router -->
+    </main>
+
+    <div id="quote-drawer" class="quote-drawer">
+        <div class="quote-drawer-header">
+            <h3>Your Quote List</h3>
+            <button class="close-drawer-btn" aria-label="Close quote list">&times;</button>
+        </div>
+        <div class="quote-drawer-content" id="quote-list-items">
+            <!-- Quote items injected here -->
+            <div class="empty-quote-state">Your quote list is currently empty.</div>
+        </div>
+        <div class="quote-drawer-footer">
+            <a href="#contact" class="btn-primary full-width" data-route="contact" id="submit-quote-btn">Submit Enquiry</a>
+        </div>
+    </div>
+    
+    <div id="catalog-modal" class="catalog-modal" aria-hidden="true" role="dialog" aria-label="Suntech Product Catalog">
+        <div class="catalog-modal-content">
+            <div class="catalog-modal-header">
+                <div class="catalog-header-title-wrap">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                        <path d="M6 6h10"/>
+                        <path d="M6 10h10"/>
+                    </svg>
+                    <h3>Suntech Group Product Catalog</h3>
+                </div>
+                <div class="catalog-header-actions">
+                    <a href="catalog.pdf" target="_blank" class="btn-catalog-download" download="Suntech-Product-Catalog.pdf">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" x2="12" y1="15" y2="3"/>
+                        </svg>
+                        Download PDF
+                    </a>
+                    <a href="catalog.pdf" target="_blank" class="btn-catalog-newtab">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                            <polyline points="15 3 21 3 21 9"/>
+                            <line x1="10" x2="21" y1="14" y2="3"/>
+                        </svg>
+                        Full Screen
+                    </a>
+                    <button class="close-catalog-btn" aria-label="Close catalog">&times;</button>
+                </div>
+            </div>
+            <div class="catalog-modal-body">
+                <iframe src="catalog.pdf#toolbar=1&navpanes=0" title="Suntech Catalog PDF" width="100%" height="100%" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="drawer-overlay"></div>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <div class="footer-brand">
+                    <img src="assets/suntech-logo.png" alt="The Suntech Group" class="suntech-brand-img footer-logo">
+                    <div class="brand-text-container">
+                        <div class="brand-text-top" style="font-size: 1.3rem;">SUNTECH GROUP</div>
+                        <div class="brand-text-bottom" style="font-size: 0.8rem;">Trading & Contracting <span style="font-size: 0.85em">W. L. L.</span></div>
+                    </div>
+                </div>
+                <p class="footer-desc">Materials that keep projects moving. Built for the demands of real projects.</p>
+                <div class="footer-credibility">
+                    <span>Established 2009</span>
+                    <span class="dot-separator">•</span>
+                    <span>Doha, Qatar</span>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="#products" data-route="products">Catalogue</a>
+                <a href="#catalog" data-route="catalog">Catalog</a>
+                <a href="#divisions" data-route="divisions">Divisions</a>
+                <a href="#about" data-route="about">About Us</a>
+                <a href="#contact" data-route="contact">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Details</h4>
+                <address>
+                    Suntech Group<br>
+                    P.O. Box 33115, Doha, Qatar<br><br>
+                    Tel: +974 4443 4601<br>
+                    Tel: +974 4427 0671<br>
+                    <a href="mailto:sales@suntechqatar.com" class="footer-link">sales@suntechqatar.com</a>
+                </address>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="#privacy" data-route="privacy">Privacy Policy</a>
+                <a href="#terms" data-route="terms">Terms & Conditions</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Suntech Group Qatar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Direct Auth Engine (Instant, zero-delay reactivity) -->
+    <script>
+    (function() {
+        window.__authEngineInitialized = true;
+        const usernameInput = document.getElementById('login-username');
+        const passwordInput = document.getElementById('login-password');
+        const comboboxWrap = document.getElementById('email-combobox-wrap');
+        const dropdownList = document.getElementById('email-dropdown-list');
+        const dropdownToggleBtn = document.getElementById('btn-email-dropdown-toggle');
+        const togglePasswordBtn = document.getElementById('btn-toggle-password');
+        const toggleEyeIcon = document.getElementById('toggle-eye-icon');
+        const loginForm = document.getElementById('login-form');
+        const submitBtn = document.getElementById('btn-login-submit');
+        const forgotPassLink = document.getElementById('link-forgot-pass');
+        const errorAlert = document.getElementById('login-error-alert');
+        const errorMessage = document.getElementById('login-error-message');
+        const activeCredRole = document.getElementById('active-cred-role');
+        const passwordHintText = document.getElementById('password-hint-text');
+
+        function showError(msg) {
+            if (errorAlert && errorMessage) {
+                errorMessage.textContent = msg;
+                errorAlert.style.display = 'flex';
+            }
+        }
+
+        function hideError() {
+            if (errorAlert) errorAlert.style.display = 'none';
+        }
+
+        function openDropdown() {
+            if (dropdownList) dropdownList.style.display = 'block';
+            if (comboboxWrap) comboboxWrap.classList.add('is-open');
+            if (usernameInput) usernameInput.setAttribute('aria-expanded', 'true');
+        }
+
+        function closeDropdown() {
+            if (dropdownList) dropdownList.style.display = 'none';
+            if (comboboxWrap) comboboxWrap.classList.remove('is-open');
+            if (usernameInput) usernameInput.setAttribute('aria-expanded', 'false');
+        }
+
+        // 1. Password Visibility Eye Toggle
+        if (togglePasswordBtn && passwordInput) {
+            togglePasswordBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const isPass = passwordInput.type === 'password';
+                passwordInput.type = isPass ? 'text' : 'password';
+                if (toggleEyeIcon) {
+                    toggleEyeIcon.innerHTML = isPass 
+                        ? '<path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" x2="22" y1="2" y2="22"/>'
+                        : '<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>';
+                }
+            });
+        }
+
+        // 2. Email Combobox Open / Close
+        if (usernameInput) {
+            usernameInput.addEventListener('focus', openDropdown);
+            usernameInput.addEventListener('click', openDropdown);
+            usernameInput.addEventListener('input', function() {
+                openDropdown();
+                hideError();
+                const q = usernameInput.value.toLowerCase().trim();
+                const items = dropdownList ? dropdownList.querySelectorAll('.combobox-item') : [];
+                items.forEach(function(item) {
+                    const text = (item.textContent || '').toLowerCase();
+                    item.style.display = (!q || text.indexOf(q) !== -1) ? 'flex' : 'none';
+                });
+            });
+        }
+
+        if (dropdownToggleBtn) {
+            dropdownToggleBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (dropdownList && dropdownList.style.display === 'block') {
+                    closeDropdown();
+                } else {
+                    if (usernameInput) usernameInput.focus();
+                    openDropdown();
+                }
+            });
+        }
+
+        // Close on click outside
+        document.addEventListener('click', function(e) {
+            if (comboboxWrap && !comboboxWrap.contains(e.target)) {
+                closeDropdown();
+            }
+        });
+
+        // 3. Select Account from Dropdown
+        if (dropdownList) {
+            dropdownList.addEventListener('click', function(e) {
+                const item = e.target.closest('.combobox-item');
+                if (!item) return;
+                const email = item.getAttribute('data-email');
+                const pass = item.getAttribute('data-pass') || '12345';
+                const badge = item.getAttribute('data-badge') || 'Active Role';
+
+                if (usernameInput) usernameInput.value = email;
+                if (passwordInput) passwordInput.value = pass;
+                if (activeCredRole) activeCredRole.textContent = badge;
+                if (passwordHintText) passwordHintText.textContent = 'Demo: ' + pass;
+
+                dropdownList.querySelectorAll('.combobox-item').forEach(function(el) {
+                    el.classList.toggle('is-selected', el === item);
+                });
+
+                hideError();
+                closeDropdown();
+            });
+        }
+
+        // 4. Forgot password helper
+        if (forgotPassLink && passwordInput) {
+            forgotPassLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                passwordInput.value = '12345';
+                if (typeof window.__suntechApp !== 'undefined' && window.__suntechApp.showToast) {
+                    window.__suntechApp.showToast('Demo Password: 12345', 'info');
+                } else {
+                    alert('Demo Password is: 12345');
+                }
+            });
+        }
+
+        // 5. Sign-In Action
+        function executeDirectSignIn() {
+            const rawEmail = usernameInput ? usernameInput.value.trim().toLowerCase() : '';
+            const rawPass = passwordInput ? passwordInput.value.trim() : '';
+
+            if (!rawEmail) {
+                showError('Please enter or select a demo account email.');
+                if (usernameInput) usernameInput.focus();
+                return;
+            }
+
+            // Identify account role
+            let matched = null;
+            if (rawEmail.includes('customer') || rawEmail.includes('client')) {
+                matched = { role: 'customer', name: 'Ahmed Al-Kuwari', displayName: 'Customer', badgeText: 'Customer (Demo)', defaultRoute: 'home', email: 'customer@suntechqatar.com' };
+            } else if (rawEmail.includes('administrator') || rawEmail.includes('executive') || rawEmail.includes('superadmin')) {
+                matched = { role: 'administrator', name: 'Executive Director', displayName: 'Administrator', badgeText: 'Administrator (Executive)', defaultRoute: 'home', email: 'executive@suntechqatar.com' };
+            } else if (rawEmail.includes('hr')) {
+                matched = { role: 'hr', name: 'Sara Al-Mahmoud', displayName: 'HR Manager', badgeText: 'HR & Staff', defaultRoute: 'home', email: 'hr@suntechqatar.com' };
+            } else if (rawEmail.includes('employee') || rawEmail.includes('warehouse') || rawEmail.includes('staff')) {
+                matched = { role: 'employee', name: 'Rashid Khan', displayName: 'Warehouse Staff', badgeText: 'Employee (Warehouse)', defaultRoute: 'home', email: 'employee@suntechqatar.com' };
+            } else if (rawEmail.includes('admin') || rawEmail.includes('linsinfotech')) {
+                matched = { role: 'admin', name: 'Tariq Mansour', displayName: 'Admin', badgeText: 'Admin (Operations)', defaultRoute: 'home', email: 'admin@suntechqatar.com' };
+            }
+
+            if (!matched) {
+                showError('Unknown demo account. Please select from the available demo accounts in the dropdown.');
+                if (usernameInput) usernameInput.focus();
+                return;
+            }
+
+            if (!rawPass) {
+                showError('Please enter the demo password (12345).');
+                if (passwordInput) passwordInput.focus();
+                return;
+            }
+
+            if (!rawPass.includes('12345')) {
+                showError('Invalid credentials. Demo password for ' + matched.displayName + ' is 12345.');
+                if (passwordInput) passwordInput.focus();
+                return;
+            }
+
+            hideError();
+
+            // 1. Show cool loading overlay
+            const loadingOverlay = document.getElementById('auth-loading-overlay');
+            const loadingRoleText = document.getElementById('auth-loading-role-text');
+            const progressBar = document.getElementById('auth-progress-bar');
+            const submitSpinner = document.getElementById('login-btn-spinner');
+            const submitText = document.getElementById('login-btn-text');
+
+            if (submitSpinner) submitSpinner.style.display = 'inline-block';
+            if (submitText) submitText.textContent = 'Verifying...';
+            if (loadingRoleText) loadingRoleText.textContent = 'Authenticating ' + matched.badgeText + '...';
+            if (loadingOverlay) loadingOverlay.classList.add('is-active');
+
+            // Animate progress bar
+            setTimeout(function() {
+                if (progressBar) progressBar.style.width = '100%';
+            }, 40);
+
+            // Complete transition after 550ms
+            setTimeout(function() {
+                // Save session
+                sessionStorage.setItem('suntech_auth_user', JSON.stringify({
+                    role: matched.role,
+                    username: matched.email,
+                    name: matched.name,
+                    displayName: matched.displayName,
+                    badgeText: matched.badgeText,
+                    password: '12345',
+                    defaultRoute: 'home'
+                }));
+
+                document.body.classList.remove('not-authenticated');
+                document.body.classList.add('authenticated');
+
+                const authScreen = document.getElementById('auth-screen');
+                if (authScreen) authScreen.style.display = 'none';
+
+                const appRoot = document.getElementById('app-root');
+                if (appRoot) {
+                    appRoot.style.display = 'block';
+                    appRoot.classList.remove('page-transitioning');
+                    if (window.__suntechViews && window.__suntechViews.home) {
+                        appRoot.innerHTML = window.__suntechViews.home;
+                    }
+                }
+
+                const headerRole = document.getElementById('header-role-text');
+                if (headerRole) headerRole.textContent = matched.badgeText;
+
+                window.location.hash = 'home';
+                window.scrollTo(0, 0);
+
+                if (window.__suntechApp && typeof window.__suntechApp.navigate === 'function') {
+                    window.__suntechApp.currentUser = matched;
+                    window.__suntechApp.renderNavForRole(matched.role);
+                    window.__suntechApp.navigate('home');
+                } else if (typeof window.__startSuntechApp === 'function') {
+                    window.__startSuntechApp();
+                }
+
+                // Hide loading overlay smoothly
+                if (loadingOverlay) loadingOverlay.classList.remove('is-active');
+                if (progressBar) progressBar.style.width = '0%';
+                if (submitSpinner) submitSpinner.style.display = 'none';
+                if (submitText) submitText.textContent = 'Sign In';
+            }, 550);
+        }
+
+        if (submitBtn) {
+            submitBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                executeDirectSignIn();
+            });
+        }
+
+        if (loginForm) {
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                executeDirectSignIn();
+            });
+        }
+
+        // 6. Sign-Out Handlers
+        function executeDirectSignOut() {
+            sessionStorage.removeItem('suntech_auth_user');
+            document.body.classList.remove('authenticated');
+            document.body.classList.add('not-authenticated');
+
+            const authScreen = document.getElementById('auth-screen');
+            if (authScreen) authScreen.style.display = 'flex';
+
+            const appRoot = document.getElementById('app-root');
+            if (appRoot) appRoot.style.display = 'none';
+
+            window.location.hash = '';
+            hideError();
+
+            if (usernameInput) usernameInput.value = 'admin@suntechqatar.com';
+            if (passwordInput) passwordInput.value = '12345';
+            if (activeCredRole) activeCredRole.textContent = 'Admin (Operations)';
+            if (passwordHintText) passwordHintText.textContent = 'Demo: 12345';
+        }
+
+        const headerSignoutBtn = document.getElementById('header-signout-btn');
+        const mobileSignoutBtn = document.getElementById('mobile-signout-btn');
+        if (headerSignoutBtn) headerSignoutBtn.addEventListener('click', executeDirectSignOut);
+        if (mobileSignoutBtn) mobileSignoutBtn.addEventListener('click', executeDirectSignOut);
+    })();
+    </script>
+
+    <!-- Core App Modules with Cache Buster -->
+    <script type="module" src="data.js?v=14.0"></script>
+    <script type="module" src="app.js?v=14.0"></script>
+</body>
+</html>
