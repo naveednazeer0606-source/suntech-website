@@ -225,12 +225,12 @@ export const views = {
     `,
     catalog: `
         <div class="page-header">
-            <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div class="container catalog-header-flex">
                 <div>
-                    <h1 style="font-size: 2.5rem;">Product Catalog</h1>
+                    <h1 class="page-title">Product Catalog</h1>
                     <p>Official technical specifications and material procurement guide.</p>
                 </div>
-                <div style="display: flex; gap: 0.75rem;">
+                <div class="catalog-actions-bar">
                     <a href="catalog.pdf" target="_blank" class="btn-primary" download="Suntech-Product-Catalog.pdf">
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 4px;">
                             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -251,7 +251,28 @@ export const views = {
             </div>
         </div>
         <div class="container section-padding" style="padding-top: 1.5rem;">
-            <div style="width: 100%; height: 80vh; min-height: 600px; background: #fff; border-radius: 14px; border: 1px solid #cbd5e1; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+            <!-- Mobile Optimized Catalog Card -->
+            <div class="catalog-mobile-card">
+                <div class="catalog-mobile-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    Official Document &bull; PDF (2.5 MB)
+                </div>
+                <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem;">Complete Technical Specifications &amp; Procurement Catalog</h3>
+                <p style="font-size: 0.95rem; margin-bottom: 1.25rem;">Includes full specifications for Electrical &amp; Lighting, Plumbing &amp; Pipe Fittings, Hardware, Fasteners, Tools, Safety Equipment, and HVAC solutions.</p>
+                <div class="catalog-mobile-actions">
+                    <a href="catalog.pdf" target="_blank" class="btn-primary full-width">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" x2="21" y1="14" y2="3"></line></svg>
+                        Open in Full Mobile Viewer
+                    </a>
+                    <a href="catalog.pdf" target="_blank" class="btn-secondary full-width" download="Suntech-Product-Catalog.pdf">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" y2="3"></line></svg>
+                        Download PDF (2.5 MB)
+                    </a>
+                </div>
+            </div>
+
+            <!-- Desktop & Tablet Embedded Frame -->
+            <div class="catalog-desktop-frame">
                 <iframe src="catalog.pdf#toolbar=1&navpanes=0" title="Suntech Product Catalog PDF" width="100%" height="100%" style="border: none; display: block; width: 100%; height: 100%;"></iframe>
             </div>
         </div>

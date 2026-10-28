@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <title>Suntech Group Qatar | Industrial Supply</title>
     <meta name="description" content="Reliable electrical, plumbing, hardware, tools, fasteners, safety, and HVAC materials for projects across Qatar. Established 2009.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/suntech-logo.png">
-    <link rel="stylesheet" href="style.css?v=13.0">
+    <link rel="stylesheet" href="style.css?v=15.0">
 </head>
 <body class="not-authenticated">
     <!-- Toast Notification Container -->
@@ -242,33 +242,37 @@
                     <span>Sign Out</span>
                 </button>
 
-                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <button class="mobile-menu-btn" id="mobile-menu-toggle-btn" aria-label="Toggle navigation menu">
                     <span></span>
                     <span></span>
-                </button>
-            </div>
-        </div>
-        
-        <div class="mobile-nav-panel">
-            <div class="mobile-user-status">
-                <span class="role-chip-dot"></span>
-                <span id="mobile-role-text">Logged in as Customer (Demo)</span>
-            </div>
-            <div class="mobile-nav-content" id="mobile-nav-content">
-                <!-- Links dynamically injected based on user role -->
-                <a href="#products" class="mobile-nav-link" data-route="products">Products</a>
-                <a href="#catalog" class="mobile-nav-link" data-route="catalog">Catalog</a>
-                <a href="#divisions" class="mobile-nav-link" data-route="divisions">Divisions</a>
-                <a href="#about" class="mobile-nav-link" data-route="about">About</a>
-                <a href="#contact" class="mobile-nav-link" data-route="contact">Contact</a>
-            </div>
-            <div class="mobile-nav-footer">
-                <button class="btn-signout full-width" id="mobile-signout-btn">
-                    Sign Out (Demo Session)
                 </button>
             </div>
         </div>
     </header>
+
+    <!-- Fullscreen Mobile Navigation Drawer (Independent of Header Transforms) -->
+    <div class="mobile-nav-panel" id="mobile-nav-panel" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+        <div class="mobile-nav-header">
+            <div class="mobile-user-status">
+                <span class="role-chip-dot"></span>
+                <span id="mobile-role-text">Customer (Demo)</span>
+            </div>
+            <button class="mobile-nav-close-btn" id="mobile-nav-close-btn" aria-label="Close navigation menu">&times;</button>
+        </div>
+        <div class="mobile-nav-content" id="mobile-nav-content">
+            <!-- Links dynamically injected based on user role -->
+            <a href="#products" class="mobile-nav-link" data-route="products">Products</a>
+            <a href="#catalog" class="mobile-nav-link" data-route="catalog">Catalog</a>
+            <a href="#divisions" class="mobile-nav-link" data-route="divisions">Divisions</a>
+            <a href="#about" class="mobile-nav-link" data-route="about">About</a>
+            <a href="#contact" class="mobile-nav-link" data-route="contact">Contact</a>
+        </div>
+        <div class="mobile-nav-footer">
+            <button class="btn-signout full-width" id="mobile-signout-btn">
+                Sign Out (Demo Session)
+            </button>
+        </div>
+    </div>
 
     <main id="app-root">
         <!-- Content will be injected here by router -->
@@ -656,7 +660,7 @@
     </script>
 
     <!-- Core App Modules with Cache Buster -->
-    <script type="module" src="data.js?v=14.0"></script>
-    <script type="module" src="app.js?v=14.0"></script>
+    <script type="module" src="data.js?v=15.0"></script>
+    <script type="module" src="app.js?v=15.0"></script>
 </body>
 </html>

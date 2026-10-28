@@ -625,6 +625,7 @@ class App {
                     }
                     document.querySelector('.mobile-nav-panel')?.classList.remove('is-open');
                     document.querySelector('.mobile-menu-btn')?.classList.remove('active');
+                    document.body.style.overflow = '';
                     this.navigate(targetRoute);
                 }
             }
@@ -644,13 +645,35 @@ class App {
         window.addEventListener('scroll', handleScroll, { passive: true });
         handleScroll();
 
-        // Mobile Menu
+        // Mobile Menu Toggle & Close Handlers
         const menuBtn = document.querySelector('.mobile-menu-btn');
         const mobileNav = document.querySelector('.mobile-nav-panel');
-        
-        if (menuBtn && mobileNav) {
-            menuBtn.addEventListener('click', () => {
-                mobileNav.classList.toggle('is-open');
+        const closeNavBtn = document.getElementById('mobile-nav-close-btn');
+
+        const toggleMobileNav = () => {
+            if (!mobileNav) return;
+            const isOpen = mobileNav.classList.toggle('is-open');
+            menuBtn?.classList.toggle('active', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        };
+
+        const closeMobileNav = () => {
+            mobileNav?.classList.remove('is-open');
+            menuBtn?.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        if (menuBtn) {
+            menuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleMobileNav();
+            });
+        }
+
+        if (closeNavBtn) {
+            closeNavBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closeMobileNav();
             });
         }
 
